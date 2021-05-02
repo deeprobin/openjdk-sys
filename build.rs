@@ -101,8 +101,42 @@ fn main() {
         builder = builder.clang_arg("-Ijdk/src/jdk.accessibility/windows/native/include");
     }
 
-    // Workaround: We define this type as opaque because of errors caused by the default representation.
-    builder = builder.opaque_type("_IMAGE_TLS_DIRECTORY64");
+    builder = builder
+    .allowlist_function("JLI_Launch")
+    .allowlist_function("LoadJavaVM")
+    .allowlist_function("GetXUsagePath")
+    .allowlist_function("GetApplicationHome")
+    .allowlist_function("GetApplicationHomeFromDll")
+    .allowlist_function("CreateExecutionEnvironment")
+    .allowlist_function("JLI_ReportErrorMessage")
+    .allowlist_function("JLI_ReportErrorMessageSys")
+    .allowlist_function("JLI_ReportMessage")
+    .allowlist_function("JLI_ShowMessage")
+    .allowlist_function("JLI_ReportExceptionDescription")
+    .allowlist_function("PrintMachineDependentOptions")
+    .allowlist_function("CallJavaMainInNewThread")
+    .allowlist_function("SetJavaCommandLineProp")
+    .allowlist_function("ReadKnownVMs")
+    .allowlist_function("CheckJvmType")
+    .allowlist_function("AddOption")
+    .allowlist_function("IsWhiteSpaceOption")
+    .allowlist_function("CurrentTimeMicros")
+    .allowlist_function("isTerminalOpt")
+    .allowlist_function("IsJavaw")
+    .allowlist_function("ContinueInNewThread")
+    .allowlist_function("JVMInit")
+    .allowlist_function("InitLauncher")
+    .allowlist_function("PostJVMInit")
+    .allowlist_function("ShowSplashScreen")
+    .allowlist_function("RegisterThread")
+    .allowlist_function("ProcessPlatformOption")
+    .allowlist_function("FindBootStrapClass")
+    .allowlist_function("CreateApplicationArgs")
+    .allowlist_function("NewPlatformStringArray")
+    .allowlist_function("GetLauncherHelperClass")
+    .allowlist_function("JavaMain")
+    .allowlist_type("LaunchMode")
+    .allowlist_type("jclass");
 
     let bindings = builder
         .parse_callbacks(Box::new(bindgen::CargoCallbacks))
