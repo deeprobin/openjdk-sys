@@ -1,0 +1,25 @@
+[package]
+name = "openjdk-sys"
+version = "0.1.0"
+authors = ["Robin Lindner <robin@deeprobin.de>"]
+description = "FFI bindings for OpenJDK"
+repository = "https://github.com/deeprobin/openjdk-sys"
+documentation = "https://docs.rs/openjdk-sys"
+homepage = "https://github.com/deeprobin/openjdk-sys#readme"
+readme = "README.md"
+license = "GPL"
+keywords = ["ffi", "bindings", "openjdk", "java", "java-development-kit"]
+categories = ["external-ffi-bindings", "compilers"]
+edition = "2018"
+links = "libjvm"
+build = "build.rs"
+
+[features]
+desktop = []
+jdwp = []
+accessibility = []
+
+[build-dependencies]
+bindgen = "0.58.1"
+tempdir = "0.3.7"
+walkdir = "2"
