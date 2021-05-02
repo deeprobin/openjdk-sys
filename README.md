@@ -9,4 +9,4 @@ This repository provides Rust bindings for OpenJDK.
 
 ## Contribution
 
-Read [CONTRIBUTION.MD](Contribution Guidelines).
+Read [Contribution Guidelines](CONTRIBUTION.MD).
